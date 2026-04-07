@@ -1,59 +1,68 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Lucineer/capitaine/master/docs/capitaine-logo.jpg" alt="Capitaine" width="120">
-</p>
+# FoodLog.ai
+You have better things to do than manually log every ingredient.
 
-<h1 align="center">foodlog-ai</h1>
+An AI companion for meal logging and nutrition tracking. A Cocapn Fleet vessel built on Cloudflare Workers.
 
-<p align="center">Nutrition Tracker — AI-powered nutrition and meal planning.</p>
+**Live URL:** https://foodlog-ai.casey-digennaro.workers.dev
 
 ---
 
-**Vessel stub** · Needs `worker.ts` to deploy · Part of the [Lucineer fleet](https://github.com/orgs/Lucineer/repositories)
+## Why this exists
+Many food trackers require tedious data entry and lock features behind subscriptions. This is an alternative: a private agent you control, designed for quick, natural interaction.
 
-## Status
+---
 
-🟡 Hull not yet deployed. Fork and add a `worker.ts` to bring this vessel online.
+## What it does
+*   **Natural Language Logging** – Describe what you ate in plain English. No barcode scanning or complex menus.
+*   **Background Nutrition Analysis** – Estimates macronutrients and calories without interrupting your flow.
+*   **Private Data Storage** – Your meal history is stored on your own edge worker. Data stays on your edge worker.
+*   **Zero Dependencies** – Pure TypeScript running on Cloudflare Workers. No npm dependencies or build chains.
+*   **Fleet Native** – Implements the open Cocapn agent protocol, compatible with other fleet vessels.
 
-## The Fleet
+---
 
+## How it's Different
+*   No accounts, logins, or subscriptions.
+*   Fork-first design. You are meant to clone and modify the logic for your needs.
+*   Bring-your-own-key (BYOK) for AI models and data sources.
+*   Deploys as a stateless edge function, costing very little to host.
 
-<details>
-<summary><strong>⚓ The Fleet</strong></summary>
+**One Current Limitation:** Nutrition analysis is currently English-language only.
 
-**Flagship vessels**
+---
 
-- [cocapn.ai](https://github.com/Lucineer/capitaine)
-- [personallog.ai](https://github.com/Lucineer/personallog-ai)
-- [businesslog.ai](https://github.com/Lucineer/businesslog-ai)
-- [studylog.ai](https://github.com/Lucineer/studylog-ai)
-- [makerlog.ai](https://github.com/Lucineer/makerlog-ai)
-- [playerlog.ai](https://github.com/Lucineer/playerlog-ai)
-- [dmlog.ai](https://github.com/Lucineer/dmlog-ai)
-- [reallog.ai](https://github.com/Lucineer/reallog-ai)
-- [deckboss.ai](https://github.com/Lucineer/deckboss-ai)
+## Quick Start
+Test the public agent at the Live URL above.
 
-**Fleet services**
+To run your own instance:
+1.  Fork this repository.
+2.  Deploy it to Cloudflare Workers.
+3.  Modify `worker.ts` to adjust the agent's behavior or add custom rules.
 
-- [Fleet Catalog](https://github.com/Lucineer/capitaine/blob/master/docs/fleet/FLEET.md)
-- [Git Agent (full)](https://github.com/Lucineer/git-agent)
-- [Cocapn Lite (minimal)](https://github.com/Lucineer/cocapn-lite)
-- [Fleet Orchestrator](https://github.com/Lucineer/fleet-orchestrator)
-- [Dead Reckoning Engine](https://github.com/Lucineer/dead-reckoning-engine)
-- [Dream Engine](https://github.com/Lucineer/dream-engine)
-- [Seed UI (5 layers)](https://github.com/Lucineer/seed-ui)
+---
 
-**For power users**
+## Fleet Endpoints
+This vessel implements the standard Cocapn Fleet BYOK interface:
+*   `/api/seed` – Initialize personal profiles.
+*   `/api/efficiency` – Analyze meal nutrient density.
+*   `/api/confidence` – Track dietary adherence.
+*   `/api/evaporation` – Configure automated data retention.
+*   `/api/memory` – Private meal history storage.
+*   `/api/kg` – Personal food knowledge graph operations.
 
-- [Cocapn Lite (tabula rasa)](https://github.com/Lucineer/cocapn-lite)
-- [Cocapn (core platform)](https://github.com/Lucineer/cocapn)
-- [ZeroClaw (framework)](https://github.com/Lucineer/zeroclaw)
+---
 
-[View all 106 repos →](https://github.com/orgs/Lucineer/repositories)
-[Fleet manifest →](https://github.com/Lucineer/capitaine/blob/master/docs/fleet/FLEET.md)
+## Contributing
+This is a fork-first project. Clone it, customize it, and run it privately. If you build a useful modification, you are encouraged to share it back.
 
-</details>
-
+---
 
 ## License
+MIT License · Superinstance & Lucineer (DiGennaro et al.)
 
-MIT · Superinstance & Lucineer (DiGennaro et al.)
+---
+
+<div align="center">
+  <a href="https://the-fleet.casey-digennaro.workers.dev">The Fleet</a> · 
+  <a href="https://cocapn.ai">Cocapn</a>
+</div>
