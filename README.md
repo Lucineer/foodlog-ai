@@ -1,63 +1,42 @@
 # FoodLog.ai
-You have better things to do than manually log every ingredient.
 
-An AI companion for meal logging and nutrition tracking. A Cocapn Fleet vessel built on Cloudflare Workers.
+You don't hate tracking your food. You hate the taps, dropdowns, and serving size math other apps require.
 
-**Live URL:** https://foodlog-ai.casey-digennaro.workers.dev
+This is a private AI food logger you run yourself. No accounts. No data lock-in. A BYOK agent vessel running as part of the Cocapn Fleet.
 
----
-
-## Why this exists
-Many food trackers require tedious data entry and lock features behind subscriptions. This is an alternative: a private agent you control, designed for quick, natural interaction.
+**Live Demo:** https://foodlog-ai.casey-digennaro.workers.dev
 
 ---
 
-## What it does
-*   **Natural Language Logging** – Describe what you ate in plain English. No barcode scanning or complex menus.
-*   **Background Nutrition Analysis** – Estimates macronutrients and calories without interrupting your flow.
-*   **Private Data Storage** – Your meal history is stored on your own edge worker. Data stays on your edge worker.
-*   **Zero Dependencies** – Pure TypeScript running on Cloudflare Workers. No npm dependencies or build chains.
-*   **Fleet Native** – Implements the open Cocapn agent protocol, compatible with other fleet vessels.
+## How it Works
+Existing food loggers often work for their business model, not you. This is an agent you control. You describe meals in plain language, and it stores the entries privately on your own infrastructure.
 
----
+## What it Does
+*   **Natural Language Logging** – Type what you ate in your own words.
+*   **Private Edge Storage** – Your meal history stays on the Cloudflare Worker you deploy. It is not sent elsewhere.
+*   **Nutrition Estimates** – Provides rough macro estimates. It is not a precise calorie calculator.
+*   **Fleet Compatible** – Uses the Cocapn Fleet protocol. Can connect to other fleet agents.
+*   **Zero Dependencies** – One TypeScript file. No npm install or build step.
+*   **Low-Cost Hosting** – Runs on Cloudflare Workers, often within the free tier.
 
-## How it's Different
-*   No accounts, logins, or subscriptions.
-*   Fork-first design. You are meant to clone and modify the logic for your needs.
-*   Bring-your-own-key (BYOK) for AI models and data sources.
-*   Deploys as a stateless edge function, costing very little to host.
-
-**One Current Limitation:** Nutrition analysis is currently English-language only.
-
----
+**An Honest Limitation:** The nutrition estimates are based on general food data. For strict dietary tracking requiring lab-grade precision, this is not the right tool.
 
 ## Quick Start
-Test the public agent at the Live URL above.
-
-To run your own instance:
 1.  Fork this repository.
 2.  Deploy it to Cloudflare Workers.
-3.  Modify `worker.ts` to adjust the agent's behavior or add custom rules.
+That's it. The code runs as-is.
+
+## Customize It
+This is a template. Add your own LLM API key. Modify `worker.ts` for your diet rules or to change how meals are processed. It's built to be edited.
+
+## Philosophy
+This is not a service. You run your own copy.
+*   **Fork-First:** You don't request features; you build them directly into your fork.
+*   **No Lock-In:** Export all data as JSON anytime.
+*   **No Fluff:** No gamification, badges, or email reminders.
 
 ---
 
-## Fleet Endpoints
-This vessel implements the standard Cocapn Fleet BYOK interface:
-*   `/api/seed` – Initialize personal profiles.
-*   `/api/efficiency` – Analyze meal nutrient density.
-*   `/api/confidence` – Track dietary adherence.
-*   `/api/evaporation` – Configure automated data retention.
-*   `/api/memory` – Private meal history storage.
-*   `/api/kg` – Personal food knowledge graph operations.
-
----
-
-## Contributing
-This is a fork-first project. Clone it, customize it, and run it privately. If you build a useful modification, you are encouraged to share it back.
-
----
-
-## License
 MIT License · Superinstance & Lucineer (DiGennaro et al.)
 
 ---
